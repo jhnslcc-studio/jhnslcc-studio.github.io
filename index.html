@@ -45,6 +45,7 @@ h2{font:900 clamp(26px,4vw,40px)/1.15 'Orbitron',sans-serif;margin-bottom:8px}
 .card p{color:#b7cade;font-size:14px}
 .proj{display:flex;flex-direction:column;gap:12px;transition:border-color .2s,box-shadow .2s}
 .proj:hover{border-color:var(--cy);box-shadow:0 0 24px rgba(0,229,255,.18)}
+.shot{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
 .chips b{font-weight:600;font-size:12px;padding:3px 10px;border:1px solid var(--pu);border-radius:99px;color:#c9b8ff}
 .contact{text-align:center;padding:9vh 0}
@@ -100,12 +101,12 @@ footer{text-align:center;padding:28px 5vw 40px;color:var(--mut);font-size:13px;b
     <p class="sub">Things I have built and shipped for Bedrock servers.</p>
     <div class="grid">
       <div class="card proj">
-        <h3>Breeze Bedrock</h3>
+        <img class="shot" src="img/breeze-bedrock.jpg" alt="Breeze Bedrock lobby with the server title, shop and leaderboard signs" loading="lazy"><h3>Breeze Bedrock</h3>
         <p>Free-for-all PvP arena plugin for Minecraft Bedrock servers.</p>
         <div class="chips"><b>Endstone</b><b>Python</b><b>PvP</b></div>
       </div>
       <a class="card proj" href="https://github.com/jhnslcc-studio/CNMB-ARENA-SERVER" target="_blank" rel="noopener">
-        <h3>CNMB ARENA</h3>
+        <img class="shot" src="img/cnmb-arena.jpg" alt="CNMB ARENA waiting lobby showing 1 of 2 players joined and a role boost message" loading="lazy"><h3>CNMB ARENA</h3>
         <p>Tag team match system with a custom behavior pack and resource pack. View the code on GitHub.</p>
         <div class="chips"><b>Behavior pack</b><b>Resource pack</b><b>JavaScript</b></div>
       </a>
