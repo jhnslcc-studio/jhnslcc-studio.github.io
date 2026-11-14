@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DEV_JHNSLCC | Minecraft Bedrock Developer</title>
 <meta name="description" content="Minecraft Bedrock full-stack developer. Endstone plugins, behavior packs, resource packs and server fixes. Open for commissions.">
+<link rel="icon" type="image/png" sizes="96x96" href="img/dev-jhnslcc-logo-small.png">
+<link rel="apple-touch-icon" href="img/dev-jhnslcc-logo.png">
+<meta property="og:title" content="DEV_JHNSLCC | Minecraft Bedrock Developer">
+<meta property="og:description" content="Endstone plugins, behavior packs, resource packs and server fixes for Minecraft Bedrock. Open for commissions.">
+<meta property="og:image" content="https://jhnslcc-studio.github.io/img/dev-jhnslcc-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -53,13 +58,89 @@ h2{font:900 clamp(26px,4vw,40px)/1.15 'Orbitron',sans-serif;margin-bottom:8px}
 .toast{margin-top:14px;min-height:1.5em;color:var(--cy);font-size:14px}
 footer{text-align:center;padding:28px 5vw 40px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
 @media(max-width:700px){nav a.hide{display:none}}
-@media(prefers-reduced-motion:reduce){h1{animation:none}.type i{animation:none}html{scroll-behavior:auto}}
+
+/* ---- voxel background (original shapes, no Mojang assets) ---- */
+.vox{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;
+  background:radial-gradient(60vw 50vh at 12% 8%,rgba(0,229,255,.14),transparent 70%),radial-gradient(55vw 55vh at 92% 92%,rgba(138,92,255,.18),transparent 70%)}
+.vox-floor{position:absolute;left:-50%;width:200%;bottom:-6%;height:70vh;
+  background-image:linear-gradient(rgba(0,229,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.2) 1px,transparent 1px);
+  background-size:64px 64px;transform:perspective(420px) rotateX(68deg);transform-origin:50% 100%;
+  -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%);
+  animation:voxgrid 7s linear infinite}
+@keyframes voxgrid{to{background-position:0 64px}}
+.vox-fl{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);opacity:var(--o,.5);
+  filter:drop-shadow(0 0 14px rgba(0,229,255,.3));animation:voxfloat var(--t,10s) ease-in-out var(--d,0s) infinite}
+@keyframes voxfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@media(max-width:700px){.vox-fl.hm{display:none}}
+
+/* ---- logo mark in header ---- */
+.logo{display:inline-flex;align-items:center;gap:10px}
+.logo img{width:38px;height:38px;border-radius:22%;display:block;box-shadow:0 0 14px rgba(0,229,255,.5)}
+
+/* ---- service icons ---- */
+.ico{width:48px;height:48px;margin-bottom:12px;filter:drop-shadow(0 0 8px rgba(0,229,255,.45))}
+#services .card{transition:transform .25s,border-color .25s,box-shadow .25s}
+#services .card:hover{transform:translateY(-4px);border-color:var(--cy);box-shadow:0 0 24px rgba(0,229,255,.16),0 0 50px rgba(138,92,255,.12)}
+
+/* ---- project badges + contact facts ---- */
+.badge{align-self:flex-start;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid var(--cy);color:var(--cy)}
+.badge.alt{border-color:var(--pu);color:#c9b8ff}
+.facts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 26px}
+.facts span{font-size:12px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:rgba(10,16,32,.7);color:#c4d6e8}
+.facts b{color:var(--cy);font-weight:600}
+
+@media(prefers-reduced-motion:reduce){h1{animation:none}.type i{animation:none}html{scroll-behavior:auto}.vox-floor,.vox-fl{animation:none}#services .card{transition:none}#services .card:hover{transform:none}}
 </style>
 </head>
 <body>
+<!-- icon sprite + voxel background -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="icg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00e5ff"/><stop offset="1" stop-color="#8a5cff"/></linearGradient>
+  </defs>
+  <symbol id="ic-plugin" viewBox="0 0 48 48" fill="none" stroke="url(#icg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 5v11M30 5v11M11 16h26v7a13 13 0 0 1-26 0z"/><path d="M24 36v8"/>
+  </symbol>
+  <symbol id="ic-behavior" viewBox="0 0 48 48" fill="none" stroke="url(#icg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 4l18 10v20L24 44 6 34V14z"/><path d="M6 14l18 10 18-10M24 24v20"/>
+  </symbol>
+  <symbol id="ic-resource" viewBox="0 0 48 48" fill="none" stroke="url(#icg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 6l18 9-18 9-18-9z"/><path d="M6 24l18 9 18-9"/><path d="M6 33l18 9 18-9"/>
+  </symbol>
+  <symbol id="ic-fix" viewBox="0 0 48 48" fill="none" stroke="url(#icg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M31 6a10 10 0 0 0-9 14L6 36l6 6 16-16a10 10 0 0 0 14-9l-7 7-6-1-1-6z"/>
+  </symbol>
+  <symbol id="ic-api" viewBox="0 0 48 48" fill="none" stroke="url(#icg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="10" cy="24" r="5"/><circle cx="38" cy="11" r="5"/><circle cx="38" cy="37" r="5"/><path d="M15 22l18-9M15 26l18 9"/>
+  </symbol>
+  <symbol id="ic-tools" viewBox="0 0 48 48" fill="none" stroke="url(#icg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="9" width="38" height="30" rx="4"/><path d="M5 18h38M16 26l-4 4 4 4M26 34h8"/>
+  </symbol>
+  <symbol id="vx-cube" viewBox="0 0 100 100">
+    <polygon points="50,6 92,30 50,54 8,30" fill="rgba(0,229,255,.26)" stroke="url(#icg)" stroke-width="1.6" stroke-linejoin="round"/>
+    <polygon points="8,30 50,54 50,98 8,74" fill="rgba(138,92,255,.24)" stroke="url(#icg)" stroke-width="1.6" stroke-linejoin="round"/>
+    <polygon points="92,30 50,54 50,98 92,74" fill="rgba(0,229,255,.08)" stroke="url(#icg)" stroke-width="1.6" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="vx-island" viewBox="0 0 140 120">
+    <polygon points="10,52 70,88 130,52 70,116" fill="rgba(138,92,255,.18)" stroke="url(#icg)" stroke-width="1.5" stroke-linejoin="round"/>
+    <polygon points="70,22 130,50 70,78 10,50" fill="rgba(0,229,255,.22)" stroke="url(#icg)" stroke-width="1.6" stroke-linejoin="round"/>
+    <polygon points="10,50 70,78 70,90 10,62" fill="rgba(138,92,255,.30)" stroke="url(#icg)" stroke-width="1.5" stroke-linejoin="round"/>
+    <polygon points="130,50 70,78 70,90 130,62" fill="rgba(0,229,255,.10)" stroke="url(#icg)" stroke-width="1.5" stroke-linejoin="round"/>
+    <use href="#vx-cube" x="52" y="6" width="30" height="30"/><use href="#vx-cube" x="84" y="24" width="22" height="22"/>
+  </symbol>
+</svg>
+<div class="vox" aria-hidden="true">
+  <div class="vox-floor"></div>
+  <svg class="vox-fl"       style="--x:5%;  --y:18%; --s:100px; --d:0s;  --t:9s;  --o:.55"><use href="#vx-cube"/></svg>
+  <svg class="vox-fl hm"    style="--x:86%; --y:12%; --s:64px;  --d:-3s; --t:11s; --o:.45"><use href="#vx-cube"/></svg>
+  <svg class="vox-fl hm"    style="--x:74%; --y:52%; --s:44px;  --d:-5s; --t:8s;  --o:.4"><use href="#vx-cube"/></svg>
+  <svg class="vox-fl"       style="--x:16%; --y:64%; --s:50px;  --d:-2s; --t:10s; --o:.4"><use href="#vx-cube"/></svg>
+  <svg class="vox-fl"       style="--x:70%; --y:54%; --s:200px; --d:-1s; --t:13s; --o:.5"><use href="#vx-island"/></svg>
+  <svg class="vox-fl hm"    style="--x:1%;  --y:44%; --s:140px; --d:-4s; --t:14s; --o:.4"><use href="#vx-island"/></svg>
+</div>
 <canvas id="sky" aria-hidden="true"></canvas>
 <header>
-  <a class="logo" href="#top">DEV_JHNSLCC</a>
+  <a class="logo" href="#top"><img src="img/dev-jhnslcc-logo-small.png" alt="" width="38" height="38">DEV_JHNSLCC</a>
   <nav>
     <a class="hide" href="#services">Services</a>
     <a class="hide" href="#projects">Projects</a>
@@ -87,12 +168,12 @@ footer{text-align:center;padding:28px 5vw 40px;color:var(--mut);font-size:13px;b
     <h2>What I build</h2>
     <p class="sub">Pick one service or combine them into a full server solution.</p>
     <div class="grid">
-      <div class="card"><h3>Plugin development</h3><p>Custom features, mechanics, commands, events, and server-side systems.</p></div>
-      <div class="card"><h3>Behavior packs</h3><p>Custom entities, items, behaviors, and gameplay mechanics.</p></div>
-      <div class="card"><h3>Resource packs</h3><p>Textures, UI, animations, models, and visual customization.</p></div>
-      <div class="card"><h3>Fixes and optimization</h3><p>Debugging, compatibility, and performance work on live servers.</p></div>
-      <div class="card"><h3>Integrations</h3><p>Connect your server to APIs, webhooks, and other systems.</p></div>
-      <div class="card"><h3>Full-stack tools</h3><p>Supporting web tools and dashboards built with JavaScript, TypeScript, and Python.</p></div>
+      <div class="card"><svg class="ico" role="img" aria-label="Plugin icon"><use href="#ic-plugin"/></svg><h3>Plugin development</h3><p>Custom features, mechanics, commands, events, and server-side systems.</p></div>
+      <div class="card"><svg class="ico" role="img" aria-label="Behavior pack icon"><use href="#ic-behavior"/></svg><h3>Behavior packs</h3><p>Custom entities, items, behaviors, and gameplay mechanics.</p></div>
+      <div class="card"><svg class="ico" role="img" aria-label="Resource pack icon"><use href="#ic-resource"/></svg><h3>Resource packs</h3><p>Textures, UI, animations, models, and visual customization.</p></div>
+      <div class="card"><svg class="ico" role="img" aria-label="Fix icon"><use href="#ic-fix"/></svg><h3>Fixes and optimization</h3><p>Debugging, compatibility, and performance work on live servers.</p></div>
+      <div class="card"><svg class="ico" role="img" aria-label="Integration icon"><use href="#ic-api"/></svg><h3>Integrations</h3><p>Connect your server to APIs, webhooks, and other systems.</p></div>
+      <div class="card"><svg class="ico" role="img" aria-label="Tools icon"><use href="#ic-tools"/></svg><h3>Full-stack tools</h3><p>Supporting web tools and dashboards built with JavaScript, TypeScript, and Python.</p></div>
     </div>
   </section>
 
@@ -101,12 +182,12 @@ footer{text-align:center;padding:28px 5vw 40px;color:var(--mut);font-size:13px;b
     <p class="sub">Things I have built and shipped for Bedrock servers.</p>
     <div class="grid">
       <div class="card proj">
-        <img class="shot" src="img/breeze-bedrock.jpg" alt="Breeze Bedrock lobby with the server title, shop and leaderboard signs" loading="lazy"><h3>Breeze Bedrock</h3>
+        <img class="shot" src="img/breeze-bedrock.jpg" alt="Breeze Bedrock lobby with the server title, shop and leaderboard signs" loading="lazy"><span class="badge alt">Client project</span><h3>Breeze Bedrock</h3>
         <p>Free-for-all PvP arena plugin for Minecraft Bedrock servers.</p>
         <div class="chips"><b>Endstone</b><b>Python</b><b>PvP</b></div>
       </div>
       <a class="card proj" href="https://github.com/jhnslcc-studio/CNMB-ARENA-SERVER" target="_blank" rel="noopener">
-        <img class="shot" src="img/cnmb-arena.jpg" alt="CNMB ARENA waiting lobby showing 1 of 2 players joined and a role boost message" loading="lazy"><h3>CNMB ARENA</h3>
+        <img class="shot" src="img/cnmb-arena.jpg" alt="CNMB ARENA waiting lobby showing 1 of 2 players joined and a role boost message" loading="lazy"><span class="badge">Built by me</span><h3>CNMB ARENA</h3>
         <p>Tag team match system with a custom behavior pack and resource pack. View the code on GitHub.</p>
         <div class="chips"><b>Behavior pack</b><b>Resource pack</b><b>JavaScript</b></div>
       </a>
@@ -116,10 +197,17 @@ footer{text-align:center;padding:28px 5vw 40px;color:var(--mut);font-size:13px;b
   <section id="contact" class="contact">
     <h2>Need something built?</h2>
     <p class="sub" style="margin-inline:auto">Send your server platform, what you need, and your deadline. I will reply with a quote.</p>
+    <div class="facts">
+      <span><b>Focus:</b> Minecraft Bedrock</span>
+      <span><b>Stack:</b> Python · JS/TS · JSON</span>
+      <span><b>Pricing:</b> quote per task</span>
+      <span><b>Availability:</b> all week (UTC+8)</span>
+    </div>
     <div class="cta">
       <button class="btn" id="copy" type="button">Copy Discord: DEV_JHNSLCC</button>
       <a class="btn alt" href="mailto:johnjestersalac123@gmail.com">Email me</a>
       <a class="btn alt" href="https://github.com/jhnslcc-studio" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn alt" href="https://builtbybit.com/threads/for-hire-minecraft-bedrock-developer-endstone-plugins-python-behavior-resource-packs-server-fixes.744883/" target="_blank" rel="noopener">BuiltByBit</a>
     </div>
     <div class="toast" id="toast" role="status"></div>
   </section>
