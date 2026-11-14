@@ -1,0 +1,3 @@
+﻿User-agent: *
+Allow: /
+Sitemap: https://jhnslcc-studio.github.io/sitemap.xml

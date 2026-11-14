@@ -1,22 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DEV_JHNSLCC | Minecraft Bedrock Developer</title>
+<meta name="theme-color" content="#05070d">
+<link rel="canonical" href="https://jhnslcc-studio.github.io/">
 <meta name="description" content="Minecraft Bedrock full-stack developer. Endstone plugins, behavior packs, resource packs and server fixes. Open for commissions.">
 <link rel="icon" type="image/png" sizes="96x96" href="img/dev-jhnslcc-logo-small.png">
 <link rel="apple-touch-icon" href="img/dev-jhnslcc-logo.png">
 <meta property="og:title" content="DEV_JHNSLCC | Minecraft Bedrock Developer">
 <meta property="og:description" content="Endstone plugins, behavior packs, resource packs and server fixes for Minecraft Bedrock. Open for commissions.">
-<meta property="og:image" content="https://jhnslcc-studio.github.io/img/dev-jhnslcc-logo.png">
+<meta property="og:image" content="https://jhnslcc-studio.github.io/img/og-1200x630.png">`n<meta property="og:image:width" content="1200">`n<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#05070d;--panel:#0a1020;--line:#12304a;--cy:#00e5ff;--pu:#8a5cff;--tx:#e6f3ff;--mut:#88a0b8}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--tx);font:400 16px/1.7 'JetBrains Mono',ui-monospace,Consolas,monospace}
 canvas{position:fixed;inset:0;z-index:-1}
 a{color:inherit;text-decoration:none}
@@ -50,7 +52,7 @@ h2{font:900 clamp(26px,4vw,40px)/1.15 'Orbitron',sans-serif;margin-bottom:8px}
 .card p{color:#b7cade;font-size:14px}
 .proj{display:flex;flex-direction:column;gap:12px;transition:border-color .2s,box-shadow .2s}
 .proj:hover{border-color:var(--cy);box-shadow:0 0 24px rgba(0,229,255,.18)}
-.shot{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.shot{width:100%;aspect-ratio:1280/660;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
 .chips b{font-weight:600;font-size:12px;padding:3px 10px;border:1px solid var(--pu);border-radius:99px;color:#c9b8ff}
 .contact{text-align:center;padding:9vh 0}
@@ -89,7 +91,7 @@ footer{text-align:center;padding:28px 5vw 40px;color:var(--mut);font-size:13px;b
 .facts span{font-size:12px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:rgba(10,16,32,.7);color:#c4d6e8}
 .facts b{color:var(--cy);font-weight:600}
 
-@media(prefers-reduced-motion:reduce){h1{animation:none}.type i{animation:none}html{scroll-behavior:auto}.vox-floor,.vox-fl{animation:none}#services .card{transition:none}#services .card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){h1{animation:none}.type i{animation:none}html{scroll-behavior:smooth;scroll-padding-top:80px;scroll-behavior:auto}.vox-floor,.vox-fl{animation:none}#services .card{transition:none}#services .card:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -149,8 +151,8 @@ footer{text-align:center;padding:28px 5vw 40px;color:var(--mut);font-size:13px;b
 </header>
 <main id="top">
   <div class="hero">
-    <p class="tag">Minecraft Full-Stack Developer · Server Solutions Engineer</p>
-    <h1>BUILD. INNOVATE. OPTIMIZE.</h1>
+    <p class="tag">Minecraft Full-Stack Developer Â· Server Solutions Engineer</p>
+    <p class="kicker" style="letter-spacing:.12em;text-transform:uppercase;color:var(--cy);font:600 12px JetBrains Mono,monospace">Build. Innovate. Optimize.</p><h1>Minecraft Bedrock Server Development</h1>
     <div class="type" id="type" aria-live="off"></div>
     <p class="lead">I build, customize, optimize, and maintain Minecraft Bedrock server experiences, from custom plugins and add-ons to resource packs and server fixes.</p>
     <div class="cta">
@@ -168,12 +170,12 @@ footer{text-align:center;padding:28px 5vw 40px;color:var(--mut);font-size:13px;b
     <h2>What I build</h2>
     <p class="sub">Pick one service or combine them into a full server solution.</p>
     <div class="grid">
-      <div class="card"><svg class="ico" role="img" aria-label="Plugin icon"><use href="#ic-plugin"/></svg><h3>Plugin development</h3><p>Custom features, mechanics, commands, events, and server-side systems.</p></div>
-      <div class="card"><svg class="ico" role="img" aria-label="Behavior pack icon"><use href="#ic-behavior"/></svg><h3>Behavior packs</h3><p>Custom entities, items, behaviors, and gameplay mechanics.</p></div>
-      <div class="card"><svg class="ico" role="img" aria-label="Resource pack icon"><use href="#ic-resource"/></svg><h3>Resource packs</h3><p>Textures, UI, animations, models, and visual customization.</p></div>
-      <div class="card"><svg class="ico" role="img" aria-label="Fix icon"><use href="#ic-fix"/></svg><h3>Fixes and optimization</h3><p>Debugging, compatibility, and performance work on live servers.</p></div>
-      <div class="card"><svg class="ico" role="img" aria-label="Integration icon"><use href="#ic-api"/></svg><h3>Integrations</h3><p>Connect your server to APIs, webhooks, and other systems.</p></div>
-      <div class="card"><svg class="ico" role="img" aria-label="Tools icon"><use href="#ic-tools"/></svg><h3>Full-stack tools</h3><p>Supporting web tools and dashboards built with JavaScript, TypeScript, and Python.</p></div>
+      <div class="card"><svg class="ico" aria-hidden="true"><use href="#ic-plugin"/></svg><h3>Plugin development</h3><p>Custom features, mechanics, commands, events, and server-side systems.</p></div>
+      <div class="card"><svg class="ico" aria-hidden="true"><use href="#ic-behavior"/></svg><h3>Behavior packs</h3><p>Custom entities, items, behaviors, and gameplay mechanics.</p></div>
+      <div class="card"><svg class="ico" aria-hidden="true"><use href="#ic-resource"/></svg><h3>Resource packs</h3><p>Textures, UI, animations, models, and visual customization.</p></div>
+      <div class="card"><svg class="ico" aria-hidden="true"><use href="#ic-fix"/></svg><h3>Fixes and optimization</h3><p>Debugging, compatibility, and performance work on live servers.</p></div>
+      <div class="card"><svg class="ico" aria-hidden="true"><use href="#ic-api"/></svg><h3>Integrations</h3><p>Connect your server to APIs, webhooks, and other systems.</p></div>
+      <div class="card"><svg class="ico" aria-hidden="true"><use href="#ic-tools"/></svg><h3>Full-stack tools</h3><p>Supporting web tools and dashboards built with JavaScript, TypeScript, and Python.</p></div>
     </div>
   </section>
 
@@ -199,7 +201,7 @@ footer{text-align:center;padding:28px 5vw 40px;color:var(--mut);font-size:13px;b
     <p class="sub" style="margin-inline:auto">Send your server platform, what you need, and your deadline. I will reply with a quote.</p>
     <div class="facts">
       <span><b>Focus:</b> Minecraft Bedrock</span>
-      <span><b>Stack:</b> Python · JS/TS · JSON</span>
+      <span><b>Stack:</b> Python Â· JS/TS Â· JSON</span>
       <span><b>Pricing:</b> quote per task</span>
       <span><b>Availability:</b> all week (UTC+8)</span>
     </div>
@@ -212,7 +214,7 @@ footer{text-align:center;padding:28px 5vw 40px;color:var(--mut);font-size:13px;b
     <div class="toast" id="toast" role="status"></div>
   </section>
 </main>
-<footer>DEV_JHNSLCC © 2026</footer>
+<footer>DEV_JHNSLCC Â© 2026</footer>
 
 <script>
 (function(){
